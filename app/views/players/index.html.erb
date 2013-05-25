@@ -1,0 +1,21 @@
+<div id="content">
+  <div class="boxed">
+    <div class="content">
+      <h1>Listado de Jugadores</h1>
+      <ul>
+        <% @players.each do |player| %>
+          <li>
+            <table>
+              <tr>
+                <td><%= link_to player.username, player %></td>
+                <td><%= player.full_name %></td>
+                <td><%= link_to "Editar", edit_player_path(player) %></td>
+              </tr>
+            </table>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <p><%= link_to "Nuevo Jugador", new_player_path %></p>
+  </div>
+</div>

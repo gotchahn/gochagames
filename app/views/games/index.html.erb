@@ -1,0 +1,15 @@
+<div id="content">
+  <div class="boxed">
+    <div class="content">
+      <h1>Listado de Juegos</h1>
+      <ul>
+        <% @games.each do |game| %>
+          <li>
+            <table><tr><td><%= link_to game.title, game %></td><td><%= game.genre %></td></tr></table>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <p><%= link_to "Nuevo Juego", new_game_path %></p>
+  </div>
+</div>

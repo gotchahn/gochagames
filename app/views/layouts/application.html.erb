@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gocha Games</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="header">
+    <div id="logo">
+      <h1><%= link_to "Gotcha Games", root_path %></h1>
+      <%= image_tag "gameicon.png" %>
+    </div>
+    <div id="menu">
+      <ul>
+        <li class="active"><%= link_to "Games", games_path %></li>
+        <li><%= link_to "Players", players_path %></li>
+        <li><a href="#" accesskey="3" title="">Ranking</a></li>
+      </ul>
+    </div>
+  </div>
+
+<%= yield %>
+
+  <div id="footer">
+    <p id="copy">&copy;2007 Snow Flakes. Designed by <a href="#">Free CSS Templates</a></p>
+  </div>
+</body>
+</html>

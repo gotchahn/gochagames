@@ -1,0 +1,13 @@
+<%= form_for @game do |f| %>
+  <p class="name">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p class="text">
+    <%= f.label :genre %>
+    <%= f.select :genre, Gochagames::Application.config.game_genres %>
+  </p>
+  <p class="submit">
+    <%= f.submit %>
+  </p>
+<% end %>

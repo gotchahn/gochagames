@@ -1,0 +1,27 @@
+<div id="content">
+  <h1>Crear un nuevo Juego</h1>
+  <%= form_for [@player, @trophy] do |f| %>
+    <p class="name">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p class="text">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+    <p class="text">
+      <%= f.label :game_id %>
+      <%= f.select :game_id, options_from_collection_for_select( Game.all, :id, :title) %>
+    </p>
+    <p class="text">
+      <%= f.label :points %>
+      <%= f.number_field :points %>
+    </p>
+    <p class="submit">
+      <%= f.submit %>
+    </p>
+  <% end %>
+<p>
+  <%= link_to "Back", @player %>
+</p>
+</div>

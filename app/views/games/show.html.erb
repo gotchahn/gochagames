@@ -1,0 +1,21 @@
+<div class="post">
+  <h2 class="title"><%= @game.title %></h2>
+  <div class="meta">
+    <p class="date"><%= @game.genre %></p>
+  </div>
+  <div class="story">
+    <% if @game.trophies.any? %>
+      <h2>Listado de Trofeos</h2>
+      <ul>
+        <% @game.trophies.each do |trophy| %>
+          <li><%= trophy.title %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <em>No tiene ningun trofeo asociado</em>
+    <% end %>
+  </div>
+  <p class="submit">
+    <%= link_to "Editar", edit_game_path(@game) %>
+  </p>
+</div>

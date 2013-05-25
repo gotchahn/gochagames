@@ -1,0 +1,24 @@
+<div class="post">
+  <h2 class="title"><%= @player.full_name %></h2>
+  <div class="meta">
+    <p class="date"><%= @player.username %></p>
+  </div>
+  <div class="story">
+    <table>
+      <tr>
+        <th>Email</th><th>Nacido en:</th>
+      </tr>
+      <tr>
+        <td><%= @player.email %></td><td><%= @player.birth_at %></td>
+      </tr>
+    </table>
+    <p>
+      <%= link_to "Game Card", gamecard_player_path(@player) %>
+      <%= link_to "Nuevo Trofeo", new_player_trophy_path(@player) %>
+    </p>
+  </div>
+  <p class="submit">
+    <%= link_to "Editar", edit_player_path(@player) %>
+  </p>
+</div>
+

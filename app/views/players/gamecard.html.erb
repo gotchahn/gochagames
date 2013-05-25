@@ -1,0 +1,24 @@
+<div class="post">
+  <h2 class="title"><%= link_to @player.full_name, @player %></h2>
+  <div class="meta">
+    <p class="date">Puntos:<%= @player.trophies.sum("points") %></p>
+  </div>
+  <div class="story">
+
+    <% if @player.trophies.any? %>
+      <table>
+        <% @trophies.each do |trophy| %>
+          <tr>
+            <td><%= trophy.title %></td>
+            <td><%= trophy.description %></td>
+            <td><%= trophy.game.title %></td>
+            <td><%= trophy.points %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <em> No Tiene Trofeos </em>
+    <% end %>
+  </div>
+</div>
+
