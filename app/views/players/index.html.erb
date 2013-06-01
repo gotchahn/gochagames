@@ -1,5 +1,12 @@
 <div id="content">
+
   <div class="boxed">
+    <%= form_tag players_path, method: :get do %>
+      <p class="submit">
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "Buscar" %>
+      </p>
+    <% end %>
     <div class="content">
       <h1>Listado de Jugadores</h1>
       <ul>

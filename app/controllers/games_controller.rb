@@ -1,6 +1,11 @@
 class GamesController < ApplicationController
+
   def index
-    @games = Game.all
+    @games = Game.order("title DESC")
+
+    if params[:q].present?
+      @games = Game.where("title LIKE ?","%#{params[:q]}%")
+    end
   end
 
   def show

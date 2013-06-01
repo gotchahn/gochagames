@@ -1,7 +1,14 @@
 Gochagames::Application.routes.draw do
 
+  #login
+  match '/login' => 'sessions#new', :as => :external_login, :via => :get
+  match '/login' => 'sessions#create', :via => :post
+  match '/logout' => 'sessions#destroy', :as => :logout, :via => [:delete, :post]
+  match '/signup' => 'users#new', :as => :signup
+
   root :to => 'home#index'
 
+  resources :users, only: [:new, :create]
   resources :games, except: :destroy
   resources :players do
     member do

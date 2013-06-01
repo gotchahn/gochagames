@@ -1,4 +1,11 @@
 <div id="content">
+
+  <%= form_tag  games_path, method: :get do %>
+    <p class="submit">
+      <%= text_field_tag :q, params[:q], autocomplete: 'off' %>
+      <%= submit_tag "Buscar" %>
+    </p>
+  <% end %>
   <div class="boxed">
     <div class="content">
       <h1>Listado de Juegos</h1>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525013626) do
+ActiveRecord::Schema.define(:version => 20130601022655) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
@@ -41,5 +41,12 @@ ActiveRecord::Schema.define(:version => 20130525013626) do
 
   add_index "trophies", ["game_id"], :name => "index_trophies_on_game_id"
   add_index "trophies", ["player_id"], :name => "index_trophies_on_player_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end

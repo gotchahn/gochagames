@@ -1,6 +1,11 @@
 class PlayersController < ApplicationController
   def index
     @players = Player.order("username ASC")
+
+    if params[:q].present?
+      @players = @players.where("username LIKE ? OR full_name LIKE ? ",
+        "%#{params[:q]}%", "%#{params[:q]}%")
+    end
   end
 
   def show

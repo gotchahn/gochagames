@@ -1,0 +1,15 @@
+<div id="content">
+  <%= form_tag login_path do %>
+    <p class = "text">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+    </p>
+    <p class="password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </p>
+    <p class="submit">
+      <%== submit_tag "Log in" %>
+    </p>
+  <% end %>
+</div>

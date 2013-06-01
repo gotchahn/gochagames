@@ -17,6 +17,11 @@
         <li class="active"><%= link_to "Games", games_path %></li>
         <li><%= link_to "Players", players_path %></li>
         <li><a href="#" accesskey="3" title="">Ranking</a></li>
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", signup_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
