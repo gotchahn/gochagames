@@ -8,13 +8,15 @@ Gochagames::Application.routes.draw do
 
   root :to => 'home#index'
 
+  match '/trophies' => 'home#trophies', :as => :home_trophies
+
   resources :users, only: [:new, :create]
   resources :games, except: :destroy
   resources :players do
     member do
       get 'gamecard'
     end
-    resources :trophies, only: [:new, :create]
+    resources :trophies, only: [:new, :create, :destroy, :index]
   end
 
   # The priority is based upon order of creation:

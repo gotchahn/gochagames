@@ -4,4 +4,8 @@ class HomeController < ApplicationController
   def index
     @games = Game.all
   end
+
+  def trophies
+    @trophies = Trophy.order("points DESC")
+  end
 end

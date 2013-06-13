@@ -1,0 +1,17 @@
+<h1>Listado de Juegos</h1>
+<ul>
+  <% trophies.each do |trophy| %>
+    <li>
+      <table>
+        <tr>
+            <td><%= trophy.title %></td>
+            <td><%= trophy.description %></td>
+            <td><%= "#{trophy.points} points" %></td>
+          </tr>
+          <tr>
+            <td>by:<strong><%= trophy.game.title %></strong></td>
+          </tr>
+      </table>
+    </li>
+  <% end %>
+</ul>

@@ -1,21 +1,24 @@
-<div class="post">
+<div class="content">
   <h2 class="title"><%= link_to @player.full_name, @player %></h2>
   <div class="meta">
     <p class="date">Puntos:<%= @player.trophies.sum("points") %></p>
   </div>
-  <div class="story">
-
+  <div class="boxed">
     <% if @player.trophies.any? %>
-      <table>
-        <% @trophies.each do |trophy| %>
-          <tr>
-            <td><%= trophy.title %></td>
-            <td><%= trophy.description %></td>
-            <td><%= trophy.game.title %></td>
-            <td><%= trophy.points %></td>
-          </tr>
+
+      <div class="boxed">
+        <%= form_tag player_trophies_path(@player), id: "trophies_filter", method: :get, remote: true do %>
+          <p class="submit">
+            <%= select_tag :game_id, options_from_collection_for_select( Game.all, :id, :title), prompt: "All" %>
+            <%= submit_tag "Filtrar" %>
+          </p>
         <% end %>
-      </table>
+      </div>
+
+      <div class="boxed js_trophies_list">
+        <%= render partial: "trophies/trophies_list", locals: {trophies: @trophies} %>
+      </div>
+
     <% else %>
       <em> No Tiene Trofeos </em>
     <% end %>
