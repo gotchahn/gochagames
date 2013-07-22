@@ -1,10 +1,9 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.order("username ASC")
+    @players = Player.order("players.username ASC").includes(:trophies)
 
     if params[:q].present?
-      @players = @players.where("username LIKE ? OR full_name LIKE ? ",
-        "%#{params[:q]}%", "%#{params[:q]}%")
+      @players = @players.advanced_search(params[:q])
     end
   end
 
